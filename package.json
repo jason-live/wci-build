@@ -4,7 +4,7 @@
   "description": "A webpack scaffold",
   "main": "index.js",
   "scripts": {
-    "wci-build": "echo \"Error: no test specified\""
+    "build": "echo \"Error: no test specified\""
   },
   "repository": {
     "type": "git",
