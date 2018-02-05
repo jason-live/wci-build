@@ -1,0 +1,23 @@
+{
+  "name": "wci-build",
+  "version": "1.0.0",
+  "description": "A webpack scaffold",
+  "main": "index.js",
+  "scripts": {
+    "wci-build": "echo \"Error: no test specified\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jason-live/wci-build.git"
+  },
+  "keywords": [
+    "build",
+    "webpack"
+  ],
+  "author": "jasonlive",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jason-live/wci-build/issues"
+  },
+  "homepage": "https://github.com/jason-live/wci-build#readme"
+}
