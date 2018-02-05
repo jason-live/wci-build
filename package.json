@@ -1,10 +1,13 @@
 {
   "name": "wci-build",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A webpack scaffold",
   "main": "index.js",
   "scripts": {
     "build": "echo \"Error: no test specified\""
+  },
+  "bin": {
+    "wci-build": "./bin/wci-build"
   },
   "repository": {
     "type": "git",
