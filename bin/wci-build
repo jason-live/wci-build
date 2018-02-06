@@ -1,18 +1,29 @@
 #!/usr/bin/env node
 
+const spawn = require('win-spawn');
 const join = require('path').join;
 const program = require('commander');
+const exists = require('fs').existsSync;
 
 if (process.argv.slice(2).join('') === '-v') {
   console.log('wci-cli: ' + require('../package').version);
   return;
 }
 
-console.log(process.argv);
+const args = process.argv.slice(3);
+let subcmd = program.args[0];
 
-console.log('=================================');
-
-console.log(process.argv.slice(3));
+if (!subcmd) {
+  program.help();
+} else {
+  const bin = executable(subcmd);
+  if (bin) {
+    console.log(bin);
+    wrap(spawn(bin, args, {stdio: 'inherit', customFds: [0, 1, 2]}));
+  } else {
+    program.help();
+  }
+}
 
 program
   .usage('run [options]')
@@ -28,4 +39,12 @@ function printHelp() {
   console.log('    dist            Build the production environment code');
   console.log();
   console.log('  All commands can be run with -h (or --help) for more information.')
+}
+
+
+function executable(subcmd) {
+  var file = join(__dirname, 'wci-build' + subcmd);
+  if (exists(file)) {
+    return file;
+  }
 }
