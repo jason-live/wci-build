@@ -10,6 +10,11 @@ if (process.argv.slice(2).join('') === '-v') {
   return;
 }
 
+program
+  .usage('run [options]')
+  .on('--help', printHelp)
+  .parse(process.argv);
+
 const args = process.argv.slice(3);
 let subcmd = program.args[0];
 
@@ -24,12 +29,6 @@ if (!subcmd) {
     program.help();
   }
 }
-
-program
-  .usage('run [options]')
-  .on('--help', printHelp)
-  .parse(process.argv);
-
 
 function printHelp() {
   console.log('  options:');
