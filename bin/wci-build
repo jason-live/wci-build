@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const join = require('path').join;
+const program = require('commander');
 
 if (process.argv.slice(2).join('') === '-v') {
   console.log('wci-cli: ' + require('../package').version);
