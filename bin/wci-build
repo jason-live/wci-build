@@ -15,15 +15,17 @@ console.log('=================================');
 console.log(process.argv.slice(3));
 
 program
-  .usage('<command> [options]')
+  .usage('run [options]')
   .on('--help', printHelp)
   .parse(process.argv);
 
 
 function printHelp() {
-  console.log('  Commands:');
+  console.log('  options:');
   console.log();
-  console.log('    new            Creates a new application');
+  console.log('    start           Start a development environment');
+  console.log('    test            Build the test environment code');
+  console.log('    dist            Build the production environment code');
   console.log();
   console.log('  All commands can be run with -h (or --help) for more information.')
 }
