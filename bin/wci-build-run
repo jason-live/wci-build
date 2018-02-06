@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
 const program = require('commander');
-const mkdirpSync = require('fs-extra').mkdirpSync;
 const join = require('path').join;
 const existsSync = require('fs').existsSync;
 const chalk = require('chalk');
 const error = chalk.red;
+const shell = require("shelljs");
 
 program
   .usage('[options] commandName')
@@ -14,10 +14,20 @@ program
 if (!program.args[0]) {
   program.help();
 } else {
-  const dest = join(process.cwd(), 'build');
+  const dest = join(__dirname, '../lib');
   if (!existsSync(dest)) {
     console.error(error('No build folder'));
     process.exit(1);
   }
-  require('../lib/run')(program);
+  if (program.args[0] === 'start') {
+    shell.exec(`cross-env NODE_ENV=development node ${dest}/server.js`);
+  }
+  if (program.args[0] === 'test') {
+    shell.exec(`rimraf ${process.cwd()}/dist`);
+    shell.exec(`cross-env NODE_ENV=production RUN_TEST=test webpack -p --config ${dest}/webpack.prod.js --progress --colors`);
+  }
+  if (program.args[0] === 'dist') {
+    shell.exec(`rimraf ${process.cwd()}/dist`);
+    shell.exec(`cross-env NODE_ENV=production webpack -p --config ${dest}/webpack.prod.js --progress --colors`);
+  }
 }

@@ -46,7 +46,6 @@ function printHelp() {
   console.log('  All commands can be run with -h (or --help) for more information.')
 }
 
-
 function executable(subcmd) {
   var file = join(__dirname, 'wci-build-' + subcmd);
   if (exists(file)) {

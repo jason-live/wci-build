@@ -1,5 +1,6 @@
 /node_modules
 /dist
+/src
 .vscode
 .idea
 .DS_Store
