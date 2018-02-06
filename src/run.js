@@ -25,3 +25,11 @@ function findNpm() {
   }
   throw new Error('please install npm');
 }
+
+export default function (done) {
+  const npm = findNpm();
+  runCmd(which.sync(npm), ['cross-env NODE_ENV=development node build/server.js'], function () {
+    console.log(npm + ' install end');
+    done();
+  });
+};

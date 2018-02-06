@@ -1,10 +1,10 @@
 {
   "name": "wci-build",
-  "version": "1.0.14",
+  "version": "1.0.16",
   "description": "A webpack scaffold",
   "main": "index.js",
   "scripts": {
-    "build": "echo \"Error: no test specified\""
+    "build": "rm -rf lib && babel src --out-dir lib"
   },
   "bin": {
     "wci-build": "./bin/wci-build"
@@ -12,6 +12,17 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jason-live/wci-build.git"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react",
+      "stage-0"
+    ],
+    "plugins": [
+      "add-module-exports",
+      "transform-runtime"
+    ]
   },
   "keywords": [
     "build",
@@ -23,6 +34,15 @@
     "url": "https://github.com/jason-live/wci-build/issues"
   },
   "homepage": "https://github.com/jason-live/wci-build#readme",
+  "devDependencies": {
+    "babel-cli": "^6.10.1",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-runtime": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-0": "~6.5.0",
+    "babel-runtime": "^6.9.2"
+  },
   "dependencies": {
     "chalk": "^2.3.0",
     "commander": "^2.13.0",

@@ -14,12 +14,10 @@ program
 if (!program.args[0]) {
   program.help();
 } else {
-  const dest = join(process.cwd(), program.args[0]);
-  if (existsSync(dest)) {
-    console.error(error('Existing directory here, please run new command for an empty folder!'));
+  const dest = join(process.cwd(), 'build');
+  if (!existsSync(dest)) {
+    console.error(error('No build folder'));
     process.exit(1);
   }
-  mkdirpSync(dest);
-  process.chdir(dest);
-  require('../lib/init')(program);
+  require('../lib/run')(program);
 }
