@@ -30,6 +30,12 @@ if (!subcmd) {
   }
 }
 
+function wrap(sp) {
+  sp.on('close', function(code) {
+    process.exit(code);
+  });
+}
+
 function printHelp() {
   console.log('  options:');
   console.log();
