@@ -28,7 +28,7 @@ function findNpm() {
 
 export default function (done) {
   const npm = findNpm();
-  runCmd(which.sync(npm), ['cross-env NODE_ENV=development node build/server.js'], function () {
+  runCmd(which.sync(npm), ['cross-env NODE_ENV=development node ../build/server.js'], function () {
     console.log(npm + ' install end');
     done();
   });
