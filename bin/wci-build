@@ -6,3 +6,8 @@ if (process.argv.slice(2).join('') === '-v') {
   console.log('wci-cli: ' + require('../package').version);
   return;
 }
+
+program
+  .usage('<command> [options]')
+  .on('--help', printHelp)
+  .parse(process.argv);
