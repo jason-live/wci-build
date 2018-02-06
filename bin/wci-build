@@ -48,7 +48,7 @@ function printHelp() {
 
 
 function executable(subcmd) {
-  var file = join(__dirname, 'wci-build' + subcmd);
+  var file = join(__dirname, 'wci-build-' + subcmd);
   if (exists(file)) {
     return file;
   }
