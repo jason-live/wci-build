@@ -1,6 +1,6 @@
 {
   "name": "wci-build",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "A webpack scaffold",
   "main": "index.js",
   "scripts": {
@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/jason-live/wci-build#readme",
   "dependencies": {
-    "commander": "^2.13.0"
+    "commander": "^2.13.0",
+    "win-spawn": "^2.0.0"
   }
 }
