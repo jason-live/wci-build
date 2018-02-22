@@ -34,18 +34,18 @@ app-name
 ├── package.json
 ├── .gitignore
 └── app
-└── assets
-└── script
-    └── actions
-    └── componets
-    └── containers
-    └── reducers
-    └── util
-    └── Home.js
-    └── home.less
-└── styles
-└── index.js
-└── index.tpl.html
+    └── assets
+    └── script
+        └── actions
+        └── componets
+        └── containers
+        └── reducers
+        └── util
+        └── Home.js
+        └── home.less
+    └── styles
+    └── index.js
+    └── index.tpl.html
 ```
 * 新建.babelrc|.eslintrc文件
 
