@@ -59,15 +59,6 @@ app-name
     "stage-0"
   ],
   "plugins": [
-    [
-      "import", [
-        {
-           "libraryName": "antd",
-           "libraryDirectory": "es",
-           "style": true
-        }
-      ]
-    ],
     "transform-decorators-legacy"
   ]
 }
