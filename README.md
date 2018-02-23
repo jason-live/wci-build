@@ -1,5 +1,8 @@
 # wci-build
 
+[![](https://badge.juejin.im/entry/5a8f6e28f265da4e761fddca/likes.svg?style=flat-square)](https://juejin.im/post/5a8f6dc25188257a7b5aa8b3)
+
+
 ###### 基于react16、react-router4、redux的webpack构建工具，开发者可以选择集成设计类开发框架（例如：antd），可用于开发大型网站、管理系统等，功能包含但不限于如下：
 
 * 集成最新react16、react-router4
