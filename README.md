@@ -8,7 +8,7 @@
 * 支持开发环境热更新、支持模块化API接口、支持mac、window双系统开发
 * 支持测试、生产代码自动添加版本号，支持代码合并、压缩，支持第三方库抽离，支持css代码抽离
 * 支持开发环境IP地址、端口可配置、后端API接口可配置
-* 支持三层eslint校验（1.开发工具娇艳 2.代码打包娇艳 3.git校验）
+* 支持三层eslint校验（1.开发工具娇艳 2.代码打包校验 3.git校验）
 
 ### 安装
 
@@ -24,6 +24,12 @@ npm update wci-build
 
 ### 使用
 > 可以直接使用wci-cli脚手架直接生成wci项目，单独使用wci-build需要做以下配置
+
+* 安装依赖
+
+```
+npm install react react-dom react-redux react-router-dom redux redux-thunk --save-dev
+```
 
 * 创建项目目录
 
