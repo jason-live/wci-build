@@ -1,6 +1,6 @@
 {
   "name": "wci-build",
-  "version": "1.0.37",
+  "version": "1.0.38",
   "description": "A webpack scaffold",
   "main": "index.js",
   "scripts": {
@@ -32,7 +32,7 @@
     "react-router 4"
   ],
   "author": "jasonlive",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/jason-live/wci-build/issues"
   },
