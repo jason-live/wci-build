@@ -113,23 +113,36 @@ myapp
 {
   "index": "app/index.js",
   "hostname": "127.0.0.1",
-  "name": "wciapp",
   "dev": {
     "port": 8031,
     "src": "app",
-    "api": "",
-    "module": {},
-    "is_eslint": false
+    "is_eslint": false,
+    "modules": {
+      "module1": {
+        "host": "",
+        "path": ""
+      }
+    }
   },
   "test": {
-    "module": {},
-    "api": ""
+    "port": 9031,
+    "src": "test",
+    "modules": {
+      "module1": {
+        "host": "",
+        "path": ""
+      }
+    }
   },
   "prod": {
     "port": 9031,
     "src": "dist",
-    "module": {},
-    "api": ""
+    "modules": {
+      "module1": {
+        "host": "",
+        "path": ""
+      }
+    }
   }
 }
 ```
