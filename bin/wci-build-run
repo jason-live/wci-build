@@ -19,6 +19,9 @@ if (!program.args[0]) {
     console.error(error('No build folder'));
     process.exit(1);
   }
+  if (program.args[0] === 'start:prod') {
+    shell.exec(`cross-env NODE_ENV=production node ${dest}/server.js`);
+  }
   if (program.args[0] === 'start') {
     shell.exec(`cross-env NODE_ENV=development node ${dest}/server.js`);
   }
