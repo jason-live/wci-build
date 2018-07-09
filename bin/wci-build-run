@@ -26,7 +26,7 @@ if (!program.args[0]) {
     shell.exec(`cross-env NODE_ENV=development node ${dest}/server.js`);
   }
   if (program.args[0] === 'dev') {
-    shell.exec(`rimraf ${process.cwd()}/dev`);
+    shell.exec(`rimraf ${process.cwd()}/dist`);
     shell.exec(`cross-env NODE_ENV=production RUN_TEST=test webpack -p --config ${dest}/webpack.prod.js --progress --colors`);
   }
   if (program.args[0] === 'test') {
