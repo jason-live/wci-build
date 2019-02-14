@@ -39,8 +39,10 @@ function wrap(sp) {
 function printHelp() {
   console.log('  options:');
   console.log();
+  console.log(`    ${subcmd} command`);
   console.log('    start           Start a development environment');
-  console.log('    test            Build the test environment code');
+  console.log('    dev            Build the development environment code');
+  console.log('    release            Build the test environment code');
   console.log('    dist            Build the production environment code');
   console.log();
   console.log('  All commands can be run with -h (or --help) for more information.')
