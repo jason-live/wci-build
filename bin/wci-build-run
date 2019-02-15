@@ -20,18 +20,18 @@ if (!program.args[0]) {
     process.exit(1);
   }
   if (program.args[0] === 'start') {
-    shell.exec(`cross-env node ${dest}/server.js`);
+    shell.exec(`cross-env NODE_ENV=development node ${dest}/server.js`);
   }
   if (program.args[0] === 'dev') {
     shell.exec(`rimraf ${process.cwd()}/dev`);
-    shell.exec(`cross-env RUN_DEV=dev webpack -p --config ${dest}/webpack.prod.js --progress --colors`);
+    shell.exec(`cross-env NODE_ENV=production RUN_DEV=dev webpack -p --config ${dest}/webpack.prod.js --progress --colors`);
   }
   if (program.args[0] === 'release') {
     shell.exec(`rimraf ${process.cwd()}/release`);
-    shell.exec(`cross-env RUN_TEST=release webpack -p --config ${dest}/webpack.prod.js --progress --colors`);
+    shell.exec(`cross-env NODE_ENV=production RUN_TEST=release webpack -p --config ${dest}/webpack.prod.js --progress --colors`);
   }
   if (program.args[0] === 'dist') {
     shell.exec(`rimraf ${process.cwd()}/dist`);
-    shell.exec(`cross-env webpack -p --config ${dest}/webpack.prod.js --progress --colors`);
+    shell.exec(`cross-env NODE_ENV=production webpack -p --config ${dest}/webpack.prod.js --progress --colors`);
   }
 }
