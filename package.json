@@ -1,6 +1,6 @@
 {
   "name": "wci-build",
-  "version": "1.5.10",
+  "version": "1.5.11",
   "description": "A webpack scaffold",
   "main": "index.js",
   "scripts": {
