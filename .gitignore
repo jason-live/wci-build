@@ -1,0 +1,13 @@
+/node_modules
+/dist
+/src
+.vscode
+.idea
+.DS_Store
+.tags
+.tags1
+wci.json
+*.zip
+package-lock.json
+nginx.conf
+Dockerfile

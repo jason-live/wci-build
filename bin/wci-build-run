@@ -1,0 +1,37 @@
+#!/usr/bin/env node
+
+const program = require('commander');
+const join = require('path').join;
+const existsSync = require('fs').existsSync;
+const chalk = require('chalk');
+const error = chalk.red;
+const shell = require('shelljs');
+
+program
+  .usage('[options] commandName')
+  .parse(process.argv);
+
+if (!program.args[0]) {
+  program.help();
+} else {
+  const dest = join(__dirname, '../lib');
+  if (!existsSync(dest)) {
+    console.error(error('No build folder'));
+    process.exit(1);
+  }
+  if (program.args[0] === 'start') {
+    shell.exec(`cross-env NODE_ENV=development node ${dest}/server.js`);
+  }
+  if (program.args[0] === 'dev') {
+    shell.exec(`rimraf ${process.cwd()}/dev`);
+    shell.exec(`cross-env NODE_ENV=production RUN_DEV=dev webpack -p --config ${dest}/webpack.prod.js --progress --colors`);
+  }
+  if (program.args[0] === 'release') {
+    shell.exec(`rimraf ${process.cwd()}/release`);
+    shell.exec(`cross-env NODE_ENV=production RUN_TEST=release webpack -p --config ${dest}/webpack.prod.js --progress --colors`);
+  }
+  if (program.args[0] === 'dist') {
+    shell.exec(`rimraf ${process.cwd()}/dist`);
+    shell.exec(`cross-env NODE_ENV=production webpack -p --config ${dest}/webpack.prod.js --progress --colors`);
+  }
+}
