@@ -18,10 +18,16 @@ import {
   DEFAULT_ANALYZER,
 } from './config';
 
-const { dll, dllPath } = DEFAULT_DLL;
+const { dll, dllPath, dllType = 'antd' } = DEFAULT_DLL;
 
-const urls = _.map(_.filter(dll.manifest, { type: 'js' }), 'url');
-const mfs = _.map(_.filter(dll.manifest, { type: 'json' }), 'filename');
+const urlsAntd = _.map(_.filter(dll.manifest, { type: 'js', name: dllType }), 'url');
+const urlsCommon = _.map(_.filter(dll.manifest, { type: 'js', name: 'common' }), 'url');
+
+const mfsAntd = _.map(_.filter(dll.manifest, { type: 'json', name: dllType }), 'url');
+const mfsCommon = _.map(_.filter(dll.manifest, { type: 'json', name: 'common' }), 'url');
+
+const urls = _.concat(urlsAntd, urlsCommon);
+const mfs = _.concat(mfsAntd, mfsCommon);
 
 const drps = [];
 for (let i = 0; i < mfs.length; i += 1) {
