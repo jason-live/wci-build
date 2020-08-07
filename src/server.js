@@ -37,7 +37,7 @@ const createServer = (compiler, listenPath) => {
 
 if (isDeveloping) {
   Console.log('\x1b[32m%s\x1b[0m', '==> 开发环境开始启动...');
-  server = createServer(require('./webpack.dev').default, DEFAULT_SRC);
+  server = createServer(require('./webpack.dev'), DEFAULT_SRC);
 }
 
 server.listen(DEFAULT_PORT, DEFAULT_HOSTNAME, (err) => {
