@@ -23,8 +23,8 @@ const { dll, dllPath, dllType = 'antd' } = DEFAULT_DLL;
 const urlsAntd = _.map(_.filter(dll.manifest, { type: 'js', name: dllType }), 'url');
 const urlsCommon = _.map(_.filter(dll.manifest, { type: 'js', name: 'common' }), 'url');
 
-const mfsAntd = _.map(_.filter(dll.manifest, { type: 'json', name: dllType }), 'url');
-const mfsCommon = _.map(_.filter(dll.manifest, { type: 'json', name: 'common' }), 'url');
+const mfsAntd = _.map(_.filter(dll.manifest, { type: 'json', name: dllType }), 'filename');
+const mfsCommon = _.map(_.filter(dll.manifest, { type: 'json', name: 'common' }), 'filename');
 
 const urls = _.concat(urlsAntd, urlsCommon);
 const mfs = _.concat(mfsAntd, mfsCommon);
