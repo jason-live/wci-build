@@ -1,56 +1,52 @@
-"use strict";
-
 /*
  * @Author: jason
  * @Date:   2017-11-25 10:18:45
  * @Last Modified by: jason
  * @Last Modified time: 2019-09-26 14:17:05
  */
-var projectDirectory = process.cwd();
-var build = '/build'; // const setting = require(`${projectDirectory}/wci.json`);
 
-var wciDefault = require("".concat(projectDirectory, "/").concat(build, "/wci.default.js"))();
+const projectDirectory = process.cwd();
+const build = '/build';
+// const setting = require(`${projectDirectory}/wci.json`);
+const wciDefault = require(`${projectDirectory}/${build}/wci.default.js`)();
+const wciDev = require(`${projectDirectory}/${build}/wci.dev.js`)();
+const wciRelease = require(`${projectDirectory}/${build}/wci.release.js`)();
+const wciProd = require(`${projectDirectory}/${build}/wci.prod.js`)();
 
-var wciDev = require("".concat(projectDirectory, "/").concat(build, "/wci.dev.js"))();
-
-var wciRelease = require("".concat(projectDirectory, "/").concat(build, "/wci.release.js"))();
-
-var wciProd = require("".concat(projectDirectory, "/").concat(build, "/wci.prod.js"))();
-
-var apis = {};
+let apis = {};
 var output = 'dev';
+
 /**
  * 区分环境
 */
+
 // 本地
-
-if (process.env.NODE_ENV && process.env.NODE_ENV === 'default') {
+if(process.env.NODE_ENV && process.env.NODE_ENV === 'default') {
   apis = wciDefault.apis;
-} // 开发
+}
 
-
+// 开发
 if (process.env.NODE_ENV && process.env.NODE_ENV === 'development') {
   apis = wciDev.apis;
   output = wciDev.output;
-} // 测试
+}
 
-
+// 测试
 if (process.env.NODE_ENV && process.env.NODE_ENV === 'release') {
   apis = wciRelease.apis;
   output = wciRelease.output;
-} // 生产
+}
 
-
+// 生产
 if (process.env.NODE_ENV && process.env.NODE_ENV === 'production') {
   apis = wciProd.apis;
   output = wciProd.output;
 }
+
 /**
  * @type {Object}
  */
-
-
-var config = {
+const config = {
   // 默认
   DEFAULT_PATH: projectDirectory,
   DEFAULT_SRC: wciDefault.src,
@@ -65,4 +61,5 @@ var config = {
   // 开发
   DEV_ESLINT: wciDev.eslint
 };
+
 module.exports = config;
